@@ -24,4 +24,4 @@ class Handler(BaseHTTPRequestHandler):
 if __name__=='__main__':
  import os
  class Server(ThreadingHTTPServer): request_queue_size=128
- Server((os.getenv('BIND','127.0.0.1'),8081),Handler).serve_forever()
+ Server((os.getenv('BIND','127.0.0.1'),int(os.getenv('PORT','8081'))),Handler).serve_forever()

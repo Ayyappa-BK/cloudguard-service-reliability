@@ -1,0 +1,6 @@
+.git
+target
+results
+terraform
+.local
+**/__pycache__

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import argparse,concurrent.futures,json,time,urllib.request,urllib.error,platform,datetime
-p=argparse.ArgumentParser();p.add_argument('--requests',type=int,default=300);p.add_argument('--concurrency',type=int,default=8);p.add_argument('--output',default='results/load.json');p.add_argument('--url',default='http://localhost:8080/api/check');p.add_argument('--recovery',action='store_true');p.add_argument('--fault',choices=['error','slow'],default='error');p.add_argument('--duration',type=float,default=0);p.add_argument('--min-availability',type=float,default=100.0);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--requests',type=int,default=300);p.add_argument('--concurrency',type=int,default=8);p.add_argument('--output',default='results/load.json');p.add_argument('--fault-url',default='http://localhost:8081/fault');p.add_argument('--url',default='http://localhost:8080/api/check');p.add_argument('--recovery',action='store_true');p.add_argument('--fault',choices=['error','slow'],default='error');p.add_argument('--duration',type=float,default=0);p.add_argument('--min-availability',type=float,default=100.0);a=p.parse_args()
 if a.requests<1 or a.concurrency<1 or a.duration<0:p.error('positive requests/concurrency and nonnegative duration required')
 def request(_=0):
  start=time.perf_counter()
@@ -10,7 +10,7 @@ def request(_=0):
  except Exception:code=0
  return code,(time.perf_counter()-start)*1000
 def fault(mode):
- req=urllib.request.Request('http://localhost:8081/fault',json.dumps({'mode':mode,'ttl':30}).encode(),{'Content-Type':'application/json'})
+ req=urllib.request.Request(a.fault_url,json.dumps({'mode':mode,'ttl':30}).encode(),{'Content-Type':'application/json'})
  urllib.request.urlopen(req,timeout=3).close()
 start=time.perf_counter()
 def worker(_):

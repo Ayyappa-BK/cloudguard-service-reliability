@@ -14,6 +14,8 @@ curl localhost:8080/api/check
 curl localhost:9091/actuator/health/readiness
 curl localhost:9091/actuator/health/liveness
 python3 scripts/load.py --requests 1000 --concurrency 8 --recovery
+# sustained test against the 99.9% sample threshold
+python3 scripts/load.py --duration 30 --concurrency 8 --recovery --min-availability 99.9
 ```
 
 Or install Docker Compose and run `docker compose up --build`. Service: localhost:8080, Prometheus: localhost:9090, Grafana: localhost:3000. Grafana provisions the CloudGuard dashboard and Tempo trace datasource. Management and monitoring ports bind to loopback. Stop with `docker compose down`. Anonymous Grafana access is local demo only.

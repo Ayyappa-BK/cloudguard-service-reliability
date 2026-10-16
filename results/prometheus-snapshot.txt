@@ -1,19 +1,19 @@
 # HELP application_ready_time_seconds Time taken for the application to be ready to service requests
 # TYPE application_ready_time_seconds gauge
-application_ready_time_seconds{main_application_class="dev.cloudguard.Application"} 1.249
+application_ready_time_seconds{main_application_class="dev.cloudguard.Application"} 1.224
 # HELP application_started_time_seconds Time taken to start the application
 # TYPE application_started_time_seconds gauge
-application_started_time_seconds{main_application_class="dev.cloudguard.Application"} 1.195
+application_started_time_seconds{main_application_class="dev.cloudguard.Application"} 1.194
 # HELP cloudguard_circuit_open  
 # TYPE cloudguard_circuit_open gauge
 cloudguard_circuit_open 0.0
 # HELP cloudguard_downstream_retries_total  
 # TYPE cloudguard_downstream_retries_total counter
-cloudguard_downstream_retries_total 5.0
+cloudguard_downstream_retries_total 3.0
 # HELP cloudguard_request_latency_seconds  
 # TYPE cloudguard_request_latency_seconds histogram
-cloudguard_request_latency_seconds_bucket{outcome="error",le="0.001"} 21
-cloudguard_request_latency_seconds_bucket{outcome="error",le="0.001048576"} 21
+cloudguard_request_latency_seconds_bucket{outcome="error",le="0.001"} 22
+cloudguard_request_latency_seconds_bucket{outcome="error",le="0.001048576"} 22
 cloudguard_request_latency_seconds_bucket{outcome="error",le="0.001398101"} 22
 cloudguard_request_latency_seconds_bucket{outcome="error",le="0.001747626"} 22
 cloudguard_request_latency_seconds_bucket{outcome="error",le="0.002097151"} 22
@@ -38,9 +38,9 @@ cloudguard_request_latency_seconds_bucket{outcome="error",le="0.033554431"} 22
 cloudguard_request_latency_seconds_bucket{outcome="error",le="0.039146836"} 22
 cloudguard_request_latency_seconds_bucket{outcome="error",le="0.044739241"} 22
 cloudguard_request_latency_seconds_bucket{outcome="error",le="0.050331646"} 22
-cloudguard_request_latency_seconds_bucket{outcome="error",le="0.055924051"} 24
-cloudguard_request_latency_seconds_bucket{outcome="error",le="0.061516456"} 25
-cloudguard_request_latency_seconds_bucket{outcome="error",le="0.067108864"} 25
+cloudguard_request_latency_seconds_bucket{outcome="error",le="0.055924051"} 23
+cloudguard_request_latency_seconds_bucket{outcome="error",le="0.061516456"} 24
+cloudguard_request_latency_seconds_bucket{outcome="error",le="0.067108864"} 24
 cloudguard_request_latency_seconds_bucket{outcome="error",le="0.089478485"} 25
 cloudguard_request_latency_seconds_bucket{outcome="error",le="0.111848106"} 25
 cloudguard_request_latency_seconds_bucket{outcome="error",le="0.134217727"} 25
@@ -83,90 +83,90 @@ cloudguard_request_latency_seconds_bucket{outcome="error",le="28.633115306"} 25
 cloudguard_request_latency_seconds_bucket{outcome="error",le="30.0"} 25
 cloudguard_request_latency_seconds_bucket{outcome="error",le="+Inf"} 25
 cloudguard_request_latency_seconds_count{outcome="error"} 25
-cloudguard_request_latency_seconds_sum{outcome="error"} 0.176627337
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.001"} 662
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.001048576"} 707
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.001398101"} 899
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.001747626"} 946
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.002097151"} 963
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.002446676"} 970
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.002796201"} 977
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.003145726"} 981
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.003495251"} 985
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.003844776"} 987
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.004194304"} 990
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.005592405"} 991
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.006990506"} 993
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.008388607"} 993
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.009786708"} 993
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.011184809"} 993
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.01258291"} 994
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.013981011"} 995
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.015379112"} 995
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.016777216"} 995
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.022369621"} 995
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.027962026"} 1001
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.033554431"} 1001
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.039146836"} 1001
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.044739241"} 1001
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.050331646"} 1001
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.055924051"} 1001
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.061516456"} 1001
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.067108864"} 1001
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.089478485"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.111848106"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.134217727"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.156587348"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.178956969"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.20132659"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.223696211"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.246065832"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.268435456"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.3"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.357913941"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.447392426"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.536870911"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.626349396"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.715827881"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.805306366"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.894784851"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="0.984263336"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="1.073741824"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="1.431655765"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="1.789569706"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="2.147483647"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="2.505397588"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="2.863311529"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="3.22122547"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="3.579139411"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="3.937053352"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="4.294967296"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="5.726623061"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="7.158278826"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="8.589934591"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="10.021590356"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="11.453246121"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="12.884901886"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="14.316557651"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="15.748213416"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="17.179869184"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="22.906492245"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="28.633115306"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="30.0"} 1003
-cloudguard_request_latency_seconds_bucket{outcome="success",le="+Inf"} 1003
-cloudguard_request_latency_seconds_count{outcome="success"} 1003
-cloudguard_request_latency_seconds_sum{outcome="success"} 1.257241628
+cloudguard_request_latency_seconds_sum{outcome="error"} 0.210017457
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.001"} 102204
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.001048576"} 105510
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.001398101"} 119414
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.001747626"} 124603
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.002097151"} 126735
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.002446676"} 127703
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.002796201"} 128195
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.003145726"} 128528
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.003495251"} 128714
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.003844776"} 128845
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.004194304"} 128920
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.005592405"} 129099
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.006990506"} 129197
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.008388607"} 129242
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.009786708"} 129265
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.011184809"} 129280
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.01258291"} 129290
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.013981011"} 129296
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.015379112"} 129303
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.016777216"} 129315
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.022369621"} 129331
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.027962026"} 129354
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.033554431"} 129369
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.039146836"} 129402
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.044739241"} 129410
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.050331646"} 129417
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.055924051"} 129419
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.061516456"} 129419
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.067108864"} 129421
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.089478485"} 129425
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.111848106"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.134217727"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.156587348"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.178956969"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.20132659"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.223696211"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.246065832"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.268435456"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.3"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.357913941"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.447392426"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.536870911"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.626349396"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.715827881"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.805306366"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.894784851"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="0.984263336"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="1.073741824"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="1.431655765"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="1.789569706"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="2.147483647"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="2.505397588"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="2.863311529"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="3.22122547"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="3.579139411"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="3.937053352"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="4.294967296"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="5.726623061"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="7.158278826"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="8.589934591"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="10.021590356"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="11.453246121"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="12.884901886"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="14.316557651"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="15.748213416"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="17.179869184"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="22.906492245"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="28.633115306"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="30.0"} 129430
+cloudguard_request_latency_seconds_bucket{outcome="success",le="+Inf"} 129430
+cloudguard_request_latency_seconds_count{outcome="success"} 129430
+cloudguard_request_latency_seconds_sum{outcome="success"} 104.253575246
 # HELP cloudguard_request_latency_seconds_max  
 # TYPE cloudguard_request_latency_seconds_max gauge
-cloudguard_request_latency_seconds_max{outcome="error"} 0.061274584
-cloudguard_request_latency_seconds_max{outcome="success"} 0.074418792
+cloudguard_request_latency_seconds_max{outcome="error"} 0.082593875
+cloudguard_request_latency_seconds_max{outcome="success"} 0.09148825
 # HELP cloudguard_requests_total  
 # TYPE cloudguard_requests_total counter
 cloudguard_requests_total{outcome="error"} 25.0
-cloudguard_requests_total{outcome="success"} 1003.0
+cloudguard_requests_total{outcome="success"} 129430.0
 # HELP disk_free_bytes Usable space for path
 # TYPE disk_free_bytes gauge
-disk_free_bytes{path="/Users/ayyappabk/Documents/Codex/2026-10-16/act-as-a-senior-aws-software/outputs/cloudguard-service-reliability/."} 5.77536E11
+disk_free_bytes{path="/Users/ayyappabk/Documents/Codex/2026-10-16/act-as-a-senior-aws-software/outputs/cloudguard-service-reliability/."} 5.7344E11
 # HELP disk_total_bytes Total space for path
 # TYPE disk_total_bytes gauge
 disk_total_bytes{path="/Users/ayyappabk/Documents/Codex/2026-10-16/act-as-a-senior-aws-software/outputs/cloudguard-service-reliability/."} 9.9466258432E11
@@ -200,17 +200,14 @@ http_client_requests_active_seconds_sum{client_name="localhost",exception="none"
 http_client_requests_active_seconds_max{client_name="localhost",exception="none",method="GET",outcome="UNKNOWN",status="CLIENT_ERROR",uri="/data"} 0.0
 # HELP http_client_requests_seconds  
 # TYPE http_client_requests_seconds summary
-http_client_requests_seconds_count{client_name="localhost",error="ResourceAccessException",exception="ResourceAccessException",method="GET",outcome="UNKNOWN",status="CLIENT_ERROR",uri="/data"} 2
-http_client_requests_seconds_sum{client_name="localhost",error="ResourceAccessException",exception="ResourceAccessException",method="GET",outcome="UNKNOWN",status="CLIENT_ERROR",uri="/data"} 0.014112624
 http_client_requests_seconds_count{client_name="localhost",error="ServiceUnavailable",exception="ServiceUnavailable",method="GET",outcome="SERVER_ERROR",status="503",uri="/data"} 6
-http_client_requests_seconds_sum{client_name="localhost",error="ServiceUnavailable",exception="ServiceUnavailable",method="GET",outcome="SERVER_ERROR",status="503",uri="/data"} 0.006805582
-http_client_requests_seconds_count{client_name="localhost",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/data"} 1003
-http_client_requests_seconds_sum{client_name="localhost",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/data"} 0.667347903
+http_client_requests_seconds_sum{client_name="localhost",error="ServiceUnavailable",exception="ServiceUnavailable",method="GET",outcome="SERVER_ERROR",status="503",uri="/data"} 0.024944959
+http_client_requests_seconds_count{client_name="localhost",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/data"} 129430
+http_client_requests_seconds_sum{client_name="localhost",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/data"} 98.634625178
 # HELP http_client_requests_seconds_max  
 # TYPE http_client_requests_seconds_max gauge
-http_client_requests_seconds_max{client_name="localhost",error="ResourceAccessException",exception="ResourceAccessException",method="GET",outcome="UNKNOWN",status="CLIENT_ERROR",uri="/data"} 0.007115833
-http_client_requests_seconds_max{client_name="localhost",error="ServiceUnavailable",exception="ServiceUnavailable",method="GET",outcome="SERVER_ERROR",status="503",uri="/data"} 0.002729875
-http_client_requests_seconds_max{client_name="localhost",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/data"} 0.011300834
+http_client_requests_seconds_max{client_name="localhost",error="ServiceUnavailable",exception="ServiceUnavailable",method="GET",outcome="SERVER_ERROR",status="503",uri="/data"} 0.020174791
+http_client_requests_seconds_max{client_name="localhost",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/data"} 0.091444084
 # HELP http_server_requests_active_seconds  
 # TYPE http_server_requests_active_seconds summary
 http_server_requests_active_seconds_count{exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN"} 0
@@ -221,40 +218,40 @@ http_server_requests_active_seconds_max{exception="none",method="GET",outcome="S
 # HELP http_server_requests_seconds  
 # TYPE http_server_requests_seconds summary
 http_server_requests_seconds_count{error="none",exception="none",method="GET",outcome="SERVER_ERROR",status="503",uri="/api/check"} 25
-http_server_requests_seconds_sum{error="none",exception="none",method="GET",outcome="SERVER_ERROR",status="503",uri="/api/check"} 0.195299373
-http_server_requests_seconds_count{error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/check"} 1003
-http_server_requests_seconds_sum{error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/check"} 1.854673896
+http_server_requests_seconds_sum{error="none",exception="none",method="GET",outcome="SERVER_ERROR",status="503",uri="/api/check"} 0.221627376
+http_server_requests_seconds_count{error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/check"} 129430
+http_server_requests_seconds_sum{error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/check"} 112.693883274
 # HELP http_server_requests_seconds_max  
 # TYPE http_server_requests_seconds_max gauge
-http_server_requests_seconds_max{error="none",exception="none",method="GET",outcome="SERVER_ERROR",status="503",uri="/api/check"} 0.062856708
-http_server_requests_seconds_max{error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/check"} 0.077024208
+http_server_requests_seconds_max{error="none",exception="none",method="GET",outcome="SERVER_ERROR",status="503",uri="/api/check"} 0.086031083
+http_server_requests_seconds_max{error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/check"} 0.091615125
 # HELP jvm_info JVM version info
 # TYPE jvm_info gauge
 jvm_info{runtime="OpenJDK Runtime Environment",vendor="Eclipse Adoptium",version="21.0.12.1+1-LTS"} 1
 # HELP jvm_buffer_count_buffers An estimate of the number of buffers in the pool
 # TYPE jvm_buffer_count_buffers gauge
-jvm_buffer_count_buffers{id="direct"} 16.0
+jvm_buffer_count_buffers{id="direct"} 15.0
 jvm_buffer_count_buffers{id="mapped"} 0.0
 jvm_buffer_count_buffers{id="mapped - 'non-volatile memory'"} 0.0
 # HELP jvm_buffer_memory_used_bytes An estimate of the memory that the Java virtual machine is using for this buffer pool
 # TYPE jvm_buffer_memory_used_bytes gauge
-jvm_buffer_memory_used_bytes{id="direct"} 133120.0
+jvm_buffer_memory_used_bytes{id="direct"} 124928.0
 jvm_buffer_memory_used_bytes{id="mapped"} 0.0
 jvm_buffer_memory_used_bytes{id="mapped - 'non-volatile memory'"} 0.0
 # HELP jvm_buffer_total_capacity_bytes An estimate of the total capacity of the buffers in this pool
 # TYPE jvm_buffer_total_capacity_bytes gauge
-jvm_buffer_total_capacity_bytes{id="direct"} 133120.0
+jvm_buffer_total_capacity_bytes{id="direct"} 124928.0
 jvm_buffer_total_capacity_bytes{id="mapped"} 0.0
 jvm_buffer_total_capacity_bytes{id="mapped - 'non-volatile memory'"} 0.0
 # HELP jvm_classes_loaded_classes The number of classes that are currently loaded in the Java virtual machine
 # TYPE jvm_classes_loaded_classes gauge
-jvm_classes_loaded_classes 10856.0
+jvm_classes_loaded_classes 10786.0
 # HELP jvm_classes_unloaded_classes_total The number of classes unloaded in the Java virtual machine
 # TYPE jvm_classes_unloaded_classes_total counter
 jvm_classes_unloaded_classes_total 0.0
 # HELP jvm_compilation_time_ms_total The approximate accumulated elapsed time spent in compilation
 # TYPE jvm_compilation_time_ms_total counter
-jvm_compilation_time_ms_total{compiler="HotSpot 64-Bit Tiered Compilers"} 3288.0
+jvm_compilation_time_ms_total{compiler="HotSpot 64-Bit Tiered Compilers"} 16635.0
 # HELP jvm_gc_live_data_size_bytes Size of long-lived heap memory pool after reclamation
 # TYPE jvm_gc_live_data_size_bytes gauge
 jvm_gc_live_data_size_bytes 0.0
@@ -263,30 +260,30 @@ jvm_gc_live_data_size_bytes 0.0
 jvm_gc_max_data_size_bytes 4.294967296E9
 # HELP jvm_gc_memory_allocated_bytes_total Incremented for an increase in the size of the (young) heap memory pool after one GC to before the next
 # TYPE jvm_gc_memory_allocated_bytes_total counter
-jvm_gc_memory_allocated_bytes_total 2.03423744E8
+jvm_gc_memory_allocated_bytes_total 1.486880768E10
 # HELP jvm_gc_memory_promoted_bytes_total Count of positive increases in the size of the old generation memory pool before GC to after GC
 # TYPE jvm_gc_memory_promoted_bytes_total counter
-jvm_gc_memory_promoted_bytes_total 8983112.0
+jvm_gc_memory_promoted_bytes_total 1.8442304E7
 # HELP jvm_gc_overhead An approximation of the percent of CPU time used by GC activities over the last lookback period or since monitoring began, whichever is shorter, in the range [0..1]
 # TYPE jvm_gc_overhead gauge
-jvm_gc_overhead 0.0011669012354242692
+jvm_gc_overhead 0.005950364314588189
 # HELP jvm_gc_pause_seconds Time spent in GC pause
 # TYPE jvm_gc_pause_seconds summary
-jvm_gc_pause_seconds_count{action="end of minor GC",cause="G1 Evacuation Pause",gc="G1 Young Generation"} 5
-jvm_gc_pause_seconds_sum{action="end of minor GC",cause="G1 Evacuation Pause",gc="G1 Young Generation"} 0.009
+jvm_gc_pause_seconds_count{action="end of minor GC",cause="G1 Evacuation Pause",gc="G1 Young Generation"} 257
+jvm_gc_pause_seconds_sum{action="end of minor GC",cause="G1 Evacuation Pause",gc="G1 Young Generation"} 0.2
 # HELP jvm_gc_pause_seconds_max Time spent in GC pause
 # TYPE jvm_gc_pause_seconds_max gauge
-jvm_gc_pause_seconds_max{action="end of minor GC",cause="G1 Evacuation Pause",gc="G1 Young Generation"} 0.002
+jvm_gc_pause_seconds_max{action="end of minor GC",cause="G1 Evacuation Pause",gc="G1 Young Generation"} 0.003
 # HELP jvm_memory_committed_bytes The amount of memory in bytes that is committed for the Java virtual machine to use
 # TYPE jvm_memory_committed_bytes gauge
-jvm_memory_committed_bytes{area="heap",id="G1 Eden Space"} 4.8234496E7
-jvm_memory_committed_bytes{area="heap",id="G1 Old Gen"} 3.145728E7
-jvm_memory_committed_bytes{area="heap",id="G1 Survivor Space"} 6291456.0
+jvm_memory_committed_bytes{area="heap",id="G1 Eden Space"} 6.5011712E7
+jvm_memory_committed_bytes{area="heap",id="G1 Old Gen"} 3.7748736E7
+jvm_memory_committed_bytes{area="heap",id="G1 Survivor Space"} 2097152.0
 jvm_memory_committed_bytes{area="nonheap",id="CodeHeap 'non-nmethods'"} 2555904.0
-jvm_memory_committed_bytes{area="nonheap",id="CodeHeap 'non-profiled nmethods'"} 3473408.0
-jvm_memory_committed_bytes{area="nonheap",id="CodeHeap 'profiled nmethods'"} 1.5335424E7
+jvm_memory_committed_bytes{area="nonheap",id="CodeHeap 'non-profiled nmethods'"} 1.0289152E7
+jvm_memory_committed_bytes{area="nonheap",id="CodeHeap 'profiled nmethods'"} 2.490368E7
 jvm_memory_committed_bytes{area="nonheap",id="Compressed Class Space"} 6684672.0
-jvm_memory_committed_bytes{area="nonheap",id="Metaspace"} 5.177344E7
+jvm_memory_committed_bytes{area="nonheap",id="Metaspace"} 5.2887552E7
 # HELP jvm_memory_max_bytes The maximum amount of memory in bytes that can be used for memory management
 # TYPE jvm_memory_max_bytes gauge
 jvm_memory_max_bytes{area="heap",id="G1 Eden Space"} -1.0
@@ -299,47 +296,47 @@ jvm_memory_max_bytes{area="nonheap",id="Compressed Class Space"} 1.073741824E9
 jvm_memory_max_bytes{area="nonheap",id="Metaspace"} -1.0
 # HELP jvm_memory_usage_after_gc The percentage of long-lived heap pool used after the last GC event, in the range [0..1]
 # TYPE jvm_memory_usage_after_gc gauge
-jvm_memory_usage_after_gc{area="heap",pool="long-lived"} 0.005714019760489464
+jvm_memory_usage_after_gc{area="heap",pool="long-lived"} 0.008029136806726456
 # HELP jvm_memory_used_bytes The amount of used memory
 # TYPE jvm_memory_used_bytes gauge
-jvm_memory_used_bytes{area="heap",id="G1 Eden Space"} 1.2582912E7
-jvm_memory_used_bytes{area="heap",id="G1 Old Gen"} 2.4541528E7
-jvm_memory_used_bytes{area="heap",id="G1 Survivor Space"} 4267520.0
-jvm_memory_used_bytes{area="nonheap",id="CodeHeap 'non-nmethods'"} 1569664.0
-jvm_memory_used_bytes{area="nonheap",id="CodeHeap 'non-profiled nmethods'"} 3441920.0
-jvm_memory_used_bytes{area="nonheap",id="CodeHeap 'profiled nmethods'"} 1.5275392E7
-jvm_memory_used_bytes{area="nonheap",id="Compressed Class Space"} 6373784.0
-jvm_memory_used_bytes{area="nonheap",id="Metaspace"} 5.1026344E7
+jvm_memory_used_bytes{area="heap",id="G1 Eden Space"} 2.7262976E7
+jvm_memory_used_bytes{area="heap",id="G1 Old Gen"} 3.448488E7
+jvm_memory_used_bytes{area="heap",id="G1 Survivor Space"} 317408.0
+jvm_memory_used_bytes{area="nonheap",id="CodeHeap 'non-nmethods'"} 1578496.0
+jvm_memory_used_bytes{area="nonheap",id="CodeHeap 'non-profiled nmethods'"} 1.0282112E7
+jvm_memory_used_bytes{area="nonheap",id="CodeHeap 'profiled nmethods'"} 2.48672E7
+jvm_memory_used_bytes{area="nonheap",id="Compressed Class Space"} 6345432.0
+jvm_memory_used_bytes{area="nonheap",id="Metaspace"} 5.2123256E7
 # HELP jvm_threads_daemon_threads The current number of live daemon threads
 # TYPE jvm_threads_daemon_threads gauge
-jvm_threads_daemon_threads 36.0
+jvm_threads_daemon_threads 37.0
 # HELP jvm_threads_live_threads The current number of live threads including both daemon and non-daemon threads
 # TYPE jvm_threads_live_threads gauge
-jvm_threads_live_threads 43.0
+jvm_threads_live_threads 44.0
 # HELP jvm_threads_peak_threads The peak live thread count since the Java virtual machine started or peak was reset
 # TYPE jvm_threads_peak_threads gauge
-jvm_threads_peak_threads 43.0
+jvm_threads_peak_threads 44.0
 # HELP jvm_threads_started_threads_total The total number of application threads started in the JVM
 # TYPE jvm_threads_started_threads_total counter
-jvm_threads_started_threads_total 47.0
+jvm_threads_started_threads_total 48.0
 # HELP jvm_threads_states_threads The current number of threads
 # TYPE jvm_threads_states_threads gauge
 jvm_threads_states_threads{state="blocked"} 0.0
 jvm_threads_states_threads{state="new"} 0.0
 jvm_threads_states_threads{state="runnable"} 9.0
 jvm_threads_states_threads{state="terminated"} 0.0
-jvm_threads_states_threads{state="timed-waiting"} 22.0
+jvm_threads_states_threads{state="timed-waiting"} 23.0
 jvm_threads_states_threads{state="waiting"} 12.0
 # HELP logback_events_total Number of log events that were enabled by the effective log level
 # TYPE logback_events_total counter
 logback_events_total{level="debug"} 0.0
-logback_events_total{level="error"} 0.0
+logback_events_total{level="error"} 3.0
 logback_events_total{level="info"} 15.0
 logback_events_total{level="trace"} 0.0
 logback_events_total{level="warn"} 28.0
 # HELP process_cpu_time_ns_total The "cpu time" used by the Java Virtual Machine process
 # TYPE process_cpu_time_ns_total counter
-process_cpu_time_ns_total 6.354419E9
+process_cpu_time_ns_total 5.03345E10
 # HELP process_cpu_usage The "recent cpu usage" for the Java Virtual Machine process
 # TYPE process_cpu_usage gauge
 process_cpu_usage 0.0
@@ -351,10 +348,10 @@ process_files_max_files 1048576.0
 process_files_open_files 21.0
 # HELP process_start_time_seconds Start time of the process since unix epoch.
 # TYPE process_start_time_seconds gauge
-process_start_time_seconds 1.79218821399E9
+process_start_time_seconds 1.792188389641E9
 # HELP process_uptime_seconds The uptime of the Java virtual machine
 # TYPE process_uptime_seconds gauge
-process_uptime_seconds 9.069
+process_uptime_seconds 34.9
 # HELP system_cpu_count The number of processors available to the Java virtual machine
 # TYPE system_cpu_count gauge
 system_cpu_count 8.0
@@ -363,7 +360,7 @@ system_cpu_count 8.0
 system_cpu_usage 0.0
 # HELP system_load_average_1m The sum of the number of runnable entities queued to available processors and the number of runnable entities running on the available processors averaged over a period of time
 # TYPE system_load_average_1m gauge
-system_load_average_1m 7.86865234375
+system_load_average_1m 10.12353515625
 # HELP tomcat_sessions_active_current_sessions  
 # TYPE tomcat_sessions_active_current_sessions gauge
 tomcat_sessions_active_current_sessions 0.0
