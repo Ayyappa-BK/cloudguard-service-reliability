@@ -1,0 +1,27 @@
+name: Deploy EKS
+on:
+  workflow_dispatch:
+    inputs:
+      image:
+        description: Tested GHCR image with immutable sha256 digest
+        required: true
+permissions: {contents: read, id-token: write}
+jobs:
+  deploy:
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+      - name: Roll out
+        env:
+          IMAGE: ${{ inputs.image }}
+          CLUSTER: ${{ vars.EKS_CLUSTER }}
+        run: |
+          [[ "$IMAGE" =~ ^ghcr.io/[a-z0-9/_-]+@sha256:[a-f0-9]{64}$ ]] || exit 1
+          aws eks update-kubeconfig --name "$CLUSTER"
+          kubectl set image deployment/cloudguard cloudguard="$IMAGE"
+          kubectl rollout status deployment/cloudguard --timeout=180s

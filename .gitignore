@@ -1,0 +1,7 @@
+target/
+.local/
+.terraform/
+*.tfstate*
+*.tfplan
+*.tfvars
+__pycache__/

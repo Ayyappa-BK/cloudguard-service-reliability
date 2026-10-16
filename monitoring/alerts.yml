@@ -1,0 +1,27 @@
+groups:
+  - name: cloudguard
+    rules:
+      - record: cloudguard:availability:ratio5m
+        expr: sum(rate(cloudguard_requests_total{outcome="success"}[5m])) / sum(rate(cloudguard_requests_total[5m]))
+      - record: cloudguard:latency:ratio5m
+        expr: sum(rate(cloudguard_request_latency_seconds_bucket{le="0.3"}[5m])) / sum(rate(cloudguard_request_latency_seconds_count[5m]))
+      - alert: CloudGuardDown
+        expr: up{job="cloudguard"} == 0
+        for: 1m
+        labels: {severity: critical}
+        annotations: {summary: CloudGuard scrape failed, runbook_url: "docs/runbooks.md#service-down"}
+      - alert: CloudGuardFastBurn
+        expr: (1 - cloudguard:availability:ratio5m) > 0.0144 and (1 - sum(rate(cloudguard_requests_total{outcome="success"}[1h])) / sum(rate(cloudguard_requests_total[1h]))) > 0.0144
+        for: 2m
+        labels: {severity: critical}
+        annotations: {summary: Availability error budget burns above 14.4x, runbook_url: "docs/runbooks.md#dependency-failure"}
+      - alert: CloudGuardSlow
+        expr: cloudguard:latency:ratio5m < 0.99
+        for: 5m
+        labels: {severity: warning}
+        annotations: {summary: Fewer than 99 percent of requests finish in 300ms}
+      - alert: CloudGuardNoTraffic
+        expr: sum(increase(cloudguard_requests_total[10m])) == 0 or absent(cloudguard_requests_total)
+        for: 10m
+        labels: {severity: warning}
+        annotations: {summary: No traffic or missing application metrics; inspect synthetic probe}

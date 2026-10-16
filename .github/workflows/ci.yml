@@ -1,0 +1,53 @@
+name: CI
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '21', cache: maven}
+      - run: mvn -B verify
+      - run: docker compose config --quiet
+      - run: docker run --rm --entrypoint promtool -v "$PWD/monitoring:/etc/prometheus" prom/prometheus:v3.7.2 check rules /etc/prometheus/alerts.yml
+      - run: docker run --rm --entrypoint promtool -w /etc/prometheus -v "$PWD/monitoring:/etc/prometheus" prom/prometheus:v3.7.2 test rules alerts.test.yml
+      - uses: hashicorp/setup-terraform@v3
+        with: {terraform_version: '1.13.4'}
+      - run: terraform -chdir=terraform init -backend=false && terraform -chdir=terraform fmt -check && terraform -chdir=terraform validate
+      - run: |
+          curl -fsSL https://github.com/yannh/kubeconform/releases/download/v0.7.0/kubeconform-linux-amd64.tar.gz | tar xz kubeconform
+          ./kubeconform -strict -summary k8s/cloudguard.yml
+      - run: docker build -t cloudguard:ci .
+      - name: Load and recovery experiment
+        run: |
+          python3 scripts/downstream.py > /tmp/downstream.log 2>&1 &
+          java -jar target/cloudguard-1.0.0.jar > /tmp/cloudguard.log 2>&1 &
+          trap 'kill $(jobs -p) 2>/dev/null || true' EXIT
+          for i in $(seq 1 60); do curl -fsS localhost:9091/actuator/health/readiness && break; sleep 1; done
+          curl -fsS localhost:9091/actuator/health/liveness
+          python3 scripts/load.py --requests 500 --recovery --output results/ci.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification-evidence
+          path: |
+            target/surefire-reports
+            results
+            /tmp/cloudguard.log
+  publish:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions: {contents: read, packages: write}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
+        with: {registry: ghcr.io, username: '${{ github.actor }}', password: '${{ secrets.GITHUB_TOKEN }}'}
+      - run: |
+          IMAGE="ghcr.io/${GITHUB_REPOSITORY,,}:${GITHUB_SHA}"
+          docker build -t "$IMAGE" .
+          docker push "$IMAGE"

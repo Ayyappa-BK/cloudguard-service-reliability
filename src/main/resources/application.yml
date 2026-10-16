@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: cloudguard
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+server:
+  shutdown: graceful
+  port: ${PORT:8080}
+downstream:
+  url: ${DOWNSTREAM_URL:http://localhost:8081}
+logging:
+  structured:
+    format:
+      console: logstash
+management:
+  server:
+    port: ${MANAGEMENT_PORT:9091}
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  tracing:
+    sampling:
+      probability: 1.0
+  otlp:
+    tracing:
+      endpoint: ${OTEL_ENDPOINT:http://localhost:4318/v1/traces}
+  metrics:
+    distribution:
+      percentiles-histogram:
+        cloudguard.request.latency: true
+      slo:
+        cloudguard.request.latency: 300ms

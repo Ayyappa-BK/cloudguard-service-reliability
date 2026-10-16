@@ -1,0 +1,13 @@
+rule_files: [alerts.yml]
+evaluation_interval: 1m
+tests:
+  - interval: 1m
+    input_series:
+      - series: 'up{job="cloudguard"}'
+        values: '0 0 0'
+    alert_rule_test:
+      - eval_time: 2m
+        alertname: CloudGuardDown
+        exp_alerts:
+          - exp_labels: {job: cloudguard, severity: critical}
+            exp_annotations: {summary: CloudGuard scrape failed, runbook_url: "docs/runbooks.md#service-down"}

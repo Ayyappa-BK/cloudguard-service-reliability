@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-16T22:03:40.447883+00:00",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "requests": 1000,
+  "concurrency": 8,
+  "elapsed_seconds": 0.8540260830195621,
+  "availability_percent": 100.0,
+  "throughput_rps": 1170.924424772041,
+  "latency_ms": {
+    "0.5": 2.856916980817914,
+    "0.95": 5.714749917387962,
+    "0.99": 14.80699994135648
+  },
+  "errors": 0,
+  "recovery": {
+    "fault_responses": [
+      503,
+      503,
+      503,
+      503,
+      503,
+      503
+    ],
+    "seconds_until_three_successes": 2.3307394159492105,
+    "recovered": true
+  }
+}
