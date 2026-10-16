@@ -27,6 +27,7 @@ services:
     command: ["--config=/etc/otel.yml"]
     volumes: ["./monitoring/otel.yml:/etc/otel.yml:ro"]
   tempo:
+    ports: ["127.0.0.1:3200:3200"]
     image: grafana/tempo:2.9.0
     command: ["-config.file=/etc/tempo.yml"]
     volumes: ["./monitoring/tempo.yml:/etc/tempo.yml:ro"]
