@@ -23,4 +23,5 @@ class Handler(BaseHTTPRequestHandler):
   except (BrokenPipeError,ConnectionResetError):pass
 if __name__=='__main__':
  import os
- ThreadingHTTPServer((os.getenv('BIND','127.0.0.1'),8081),Handler).serve_forever()
+ class Server(ThreadingHTTPServer): request_queue_size=128
+ Server((os.getenv('BIND','127.0.0.1'),8081),Handler).serve_forever()
